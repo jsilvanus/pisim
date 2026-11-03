@@ -1,0 +1,11 @@
+# Autonomous mode, then the operator preempts and later hands back.
+{"at": 0, "label": "Autonomous", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "mode-changed", "data": {"mode": "autonomous", "previousMode": "advisory"}}}
+{"at": 100, "target": "picomposer", "path": "/gui/1", "save": "operator-takes-over-01-screen-1.html"}
+{"at": 3000, "label": "Auto cut to input 3", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "executed", "data": {"decision": {"cutToInput": 3}}}}
+{"at": 3100, "target": "picomposer", "path": "/gui/1", "save": "operator-takes-over-02-screen-1.html"}
+{"at": 6000, "label": "Operator preempts", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "preempted", "data": {"actor": "operator", "newMode": "manual", "previousMode": "autonomous", "reason": "Wrong shot"}}}
+{"at": 6100, "target": "picomposer", "path": "/gui/1", "save": "operator-takes-over-03-screen-1.html"}
+{"at": 9000, "label": "Manual cut to input 1", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "action", "data": {"actor": "operator", "action": "cut", "params": {"input": 1}}}}
+{"at": 9100, "target": "picomposer", "path": "/gui/1", "save": "operator-takes-over-04-screen-1.html"}
+{"at": 12000, "label": "Continue AI", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "mode-changed", "data": {"mode": "autonomous", "previousMode": "manual"}}}
+{"at": 12100, "target": "picomposer", "path": "/gui/1", "save": "operator-takes-over-05-screen-1.html"}

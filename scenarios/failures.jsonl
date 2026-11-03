@@ -1,0 +1,13 @@
+# Hardware trouble: ATEM drops out and returns, voice activity changes, broadcast dumped.
+{"at": 0, "label": "ATEM connected", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "atem", "data": {"connected": true, "programInput": 1, "previewInput": 2}}}
+{"at": 100, "target": "picomposer", "path": "/gui/1", "save": "failures-01-screen-1.html"}
+{"at": 2000, "label": "ATEM lost", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "atem", "data": {"connected": false}}}
+{"at": 2100, "target": "picomposer", "path": "/gui/1", "save": "failures-02-screen-1.html"}
+{"at": 5000, "label": "ATEM back", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "atem", "data": {"connected": true, "programInput": 1, "previewInput": 2}}}
+{"at": 5100, "target": "picomposer", "path": "/gui/1", "save": "failures-03-screen-1.html"}
+{"at": 7000, "label": "Speech starts", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "pivoice", "data": {"voiceActive": true, "classification": "speech"}}}
+{"at": 7100, "target": "picomposer", "path": "/gui/1", "save": "failures-04-screen-1.html"}
+{"at": 10000, "label": "Music", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "pivoice", "data": {"voiceActive": false, "classification": "music"}}}
+{"at": 10100, "target": "picomposer", "path": "/gui/1", "save": "failures-05-screen-1.html"}
+{"at": 12000, "label": "Broadcast dumped", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "broadcast-dumped", "data": {}}}
+{"at": 12100, "target": "picomposer", "path": "/gui/1", "save": "failures-06-screen-1.html"}

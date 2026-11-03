@@ -1,0 +1,10 @@
+{
+  "name": "pisim",
+  "version": "0.1.0",
+  "description": "Scenario player for the Pi production ecosystem: replays timed requests against real services so they can be tested without hardware",
+  "type": "module",
+  "bin": { "pisim": "./bin/pisim.mjs" },
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test" },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,15 @@
+# Normal service: broadcast goes live, director advises, shot is taken, rundown moves on.
+{"at": 0, "label": "Broadcast live", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "pitube", "data": {"state": "live"}}}
+{"at": 100, "target": "picomposer", "path": "/gui/1", "save": "normal-service-01-screen-1.html"}
+{"at": 1000, "label": "Rundown: opening hymn", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "rundown", "data": {"currentSection": "Opening hymn"}}}
+{"at": 1100, "target": "picomposer", "path": "/gui/1", "save": "normal-service-02-screen-1.html"}
+{"at": 3000, "label": "Director advises camera 2", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "advisory", "data": {"id": "a1", "cutToInput": 2, "reason": "Preacher steps to the lectern"}}}
+{"at": 3100, "target": "picomposer", "path": "/gui/1", "save": "normal-service-03-screen-1.html"}
+{"at": 8000, "label": "Cut executed", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "executed", "data": {"decision": {"cutToInput": 2}}}}
+{"at": 8100, "target": "picomposer", "path": "/gui/1", "save": "normal-service-04-screen-1.html"}
+{"at": 9000, "label": "Rundown: sermon", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "rundown", "data": {"currentSection": "Sermon"}}}
+{"at": 9100, "target": "picomposer", "path": "/gui/1", "save": "normal-service-05-screen-1.html"}
+{"at": 12000, "label": "Operator asks for PTZ pad", "target": "picomposer", "path": "/api/v1/prompt", "body": {"prompt": "Give me Camera 2 PTZ controls on screen-2", "targetScreenId": "screen-2"}}
+{"at": 12100, "target": "picomposer", "path": "/gui/1", "save": "normal-service-06-screen-1.html"}
+{"at": 20000, "label": "Broadcast complete", "target": "picomposer", "path": "/api/v1/ingest/event", "body": {"type": "pitube", "data": {"state": "complete"}}}
+{"at": 20100, "target": "picomposer", "path": "/gui/1", "save": "normal-service-07-screen-1.html"}
