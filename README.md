@@ -28,6 +28,16 @@ Targets default to the ecosystem's local ports and can be overridden with `PISIM
 
 `scenarios/`: `normal-service`, `operator-takes-over`, `failures` (picomposer ingest events and prompts).
 
+## Fake liturgos-auditor (VTT replay)
+
+```bash
+node bin/pisim.mjs auditor samples/demo.vtt --port 8090 --speed 1 [--loop] [--lang fi] [--api-key k]
+```
+
+Speaks the auditor's live-session API (`POST /v1/live`, `GET /v1/live/{id}`, `/events` SSE with `Last-Event-ID`, `DELETE`, `/status`, `/health`) and replays the cues of a VTT/SRT file as `transcript` events at their times (`sequence`, `text`, `language`, `start`, `end`, `wall_start`, `wall_end`, `delay_seconds`), then ends the session (`--loop` repeats). `delivery.mode=push` is honoured for local receivers only. Nothing is transcribed and the `source` URL is ignored.
+
+Point the real services at it: pivoice `auditor.url=http://127.0.0.1:8090` (pull mode), pigateway `PIGATEWAY_AUDITOR_URL=http://127.0.0.1:8090`. pivoice's own client was checked against it (three cues received); the chain through pigateway and picomposer was not run end to end. pivoice telemetry (speech/music classification) is not simulated, so activity-triggered sessions still need a session opened by hand.
+
 ## Not built yet
 
-Fake upstream services (a pigateway or pimatrix stand-in that serves state and SSE) for testing picontrol without a Pi. Unverified against the real Pi.
+A `pisim up` that starts the whole stack in simulation. pigateway simulates its own devices (ATEM, matrix, encoder, cameras) in `PIGATEWAY_MODE=simulation`, so pisim does not fake it. Unverified against the real Pi.
